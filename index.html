@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="VTON 360: High-Fidelity Virtual Try-On from Any Viewing Direction">
+  <meta name="keywords" content="3D Editing, 3D-VTON">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VTON 360</title>
+	
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/result.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <!-- mathjax -->
+  <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">VTON 360: High-Fidelity Virtual Try-On from Any Viewing Direction</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="my-hr">
+  <hr>
+</div>
+
+<!-- mathjax -->
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<section class="section">
+
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Virtual Try-On (VTON) is a transformative technology in e-commerce and fashion design, enabling realistic digital visualization of clothing on individuals. In this work, we propose VTON 360, a novel 3D VTON method that addresses the open challenge of achieving high-fidelity VTON that supports any-view rendering. Specifically, we leverage the equivalence between a 3D model and its rendered multi-view 2D images, and reformulate 3D VTON as an extension of 2D VTON that ensures 3D consistent results across multiple views. To achieve this, we extend 2D VTON models to include multi-view garments and clothing-agnostic human body images as input, and propose several novel techniques to enhance them, including: <strong>i)</strong> a pseudo-3D pose representation using normal maps derived from the SMPL-X 3D human model, <strong>ii)</strong> a multi-view spatial attention mechanism that models the correlations between features from different viewing angles, and <strong>iii)</strong> a multi-view CLIP embedding that enhances the garment CLIP features used in 2D VTON with camera information. Extensive experiments on large-scale real datasets and clothing images from e-commerce platforms demonstrate the effectiveness of our approach.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <div class="columns is-centered has-text-centered">
+          <div class="column is-full-width">
+            <h2 class="title is-3">Method</h2>
+            <div class="content has-text-justified">
+              <p>
+
+              </p>
+            </div>
+            <img src="./static/pipeline.png" witdh="1000">
+              <p>
+			   Given an input 3D human model \(\mathbf{G_{\rm src}}\) and a pair of garment images \((g_f, g_b)\), our method 1) renders \(\mathbf{G_{\rm src}}\) into multi-view 2D images (left) and 2) edits the rendered multi-view 2D images (middle); 3) reconstructs the edited images into a 3D model \(\mathbf{G_{\rm VTON}}\) (right). In the crucial step 2), we propose three novel techniques to equip a typical 2D VTON network with the capability to generate 3D-consistent results: <span class="red-text">1) Pseudo-3D Pose Input</span>, <span class="orange-text">2) Multi-view Spatial Attention</span>, and <span class="purple-text">3) Multi-view CLIP Embedding</span>
+             </p>
+          </div>
+        </div>
+
+      </div>
+
+    <hr>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3" style="margin-bottom: 30px;">3D Virtual Try-on Results with E-commerce garments (from MVG Dataset)</h2>
+        
+
+          <tr>
+            <video controls autoplay loop muted width="60%">
+                <source src="./videos/3D_VTON_Thuman_MVG.mp4" type="video/mp4">
+            </video>
+
+          </tr>
+		
+		<h2 class="title is-3" style="margin-bottom: 50px; margin-top:50px;">3D Virtual Try-on Results on Thuman2.0 Dataset</h2>
+          <tr>
+            <video controls autoplay loop muted width="60%">
+                <source src="./videos/3D_VTON_THuman.mp4" type="video/mp4">
+            </video>
+
+
+          </tr>
+		
+		<h2 class="title is-3" style="margin-bottom: 50px; margin-top:50px;">3D Virtual Try-on Results on MVHumanNet Dataset</h2>
+          <tr>
+            <video controls autoplay loop muted width="60%">
+                <source src="./videos/3D_VTON_MVHumanNet.mp4" type="video/mp4">
+            </video>
+
+          </tr>
+
+		<h2 class="title is-3" style="margin-bottom: 50px; margin-top:50px;">3D Virtual Try-on Results on a Unseen Real Scene</h2>
+          <tr>
+            <video controls autoplay loop muted width="50%">
+                <source src="./videos/3D_VTON_new_scene.mp4" type="video/mp4">
+            </video>
+
+          </tr>
+
+      </div>
+    </div>
+
+    <hr>
+
+<div class="columns is-centered has-text-centered">
+  <div class="column is-full-width">
+    <h2 class="title is-3">Qualitative Comparisons</h2>
+    <div class="slideshow-container" style="display: flex; justify-content: center; align-items: center; position: relative;">
+        <div style="position: relative;">
+      <video class="slide" controls autoplay loop muted style="width: 90%; max-width: 1300px; height: auto;">
+        <source src="./videos/Qualitative_comparison_1.mp4" type="video/mp4">
+      </video>
+      <video class="slide" controls autoplay loop muted style="width: 90%; max-width: 1300px; height: auto;">
+        <source src="./videos/Qualitative_comparison_2.mp4" type="video/mp4">
+      </video>
+
+
+      <div class="navigation-dots" style="margin-top: 15px; display: flex; justify-content: center; position: relative; z-index: 20;">
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+
+      <button class="button prev" 
+            onclick="changeSlide(-1)" 
+            style="margin-left: -100px;z-index: 10; position: absolute; left: 10px; top: 50%; transform: translateY(-50%);"> 
+        &#10094;
+      </button>
+      <button class="button next" 
+            onclick="changeSlide(1)" 
+            style="margin-right: -100px;z-index: 10; position: absolute; right: 10px; top: 50%; transform: translateY(-50%);"> 
+        &#10095;
+      </button>
+  </div>
+
+
+
+<script>
+let currentSlideIndex = 0;
+
+function changeSlide(step) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    slides[currentSlideIndex].style.display = 'none'; // Hide current slide
+    dots[currentSlideIndex].classList.remove('active'); // Remove active class from current dot
+
+    currentSlideIndex = (currentSlideIndex + step + slides.length) % slides.length;
+
+    slides[currentSlideIndex].style.display = 'block'; // Show new slide
+    dots[currentSlideIndex].classList.add('active'); // Add active class to new dot
+}
+
+// Initial setup to hide all slides except the first one
+document.querySelectorAll('.slide').forEach((slide, index) => {
+    slide.style.display = (index === 0) ? 'block' : 'none'; // Show the first slide and hide others
+});
+
+// Automatically change slides every 10 seconds
+setInterval(() => {
+    changeSlide(1);
+}, 10000); // Change slide every 10 seconds
+
+// Update display initially
+document.querySelectorAll('.dot')[currentSlideIndex].classList.add('active'); // Set first dot active
+</script>
+</section>  
+
+</html>
