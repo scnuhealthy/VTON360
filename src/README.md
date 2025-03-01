@@ -17,7 +17,7 @@ conda activate vton360
 
 ### 2. NeRF Studio
 
-* You cound have a look at [NeRF Studio Installation](https://docs.nerf.studio/quickstart/installation.html) for more detail.
+* You could have a look at [NeRF Studio Installation](https://docs.nerf.studio/quickstart/installation.html) for more detail.
 
 1. Install NeRF Studio
 ```bash
@@ -34,7 +34,7 @@ ns-install-cli # Optional, for tab completion.
 pip install gsplat==0.1.2.1
 ```
 
-3. Install our customized [Splatfacto](https://docs.nerf.studio/nerfology/methods/splat.html). See `src/splatfactox/README.md` for more details.
+3. Install our customized [Splatfacto](https://docs.nerf.studio/nerfology/methods/splat.html). See [`src/splatfactox/README.md` for more details.](./splatfactox/README.md)
 ```bash
 cd src
 pip install -e .
