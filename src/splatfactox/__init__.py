@@ -1,0 +1,1 @@
+from .splatfactox import SplatfactoxModelConfig

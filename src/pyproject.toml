@@ -1,0 +1,12 @@
+[project]
+name = "splatfactox"
+description = "An Extended Version of NeRF Studio's Splatfacto."
+version = "0.1.0"
+
+dependencies = ["nerfstudio == 1.0.0"] 
+
+[tool.setuptools.packages.find]
+include = ["splatfactox*"]
+
+[project.entry-points.'nerfstudio.method_configs']
+splatfactox = 'splatfactox.config:splatfactox_method'
