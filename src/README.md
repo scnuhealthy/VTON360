@@ -1,4 +1,4 @@
-# Offial Implementation of Out VTON360
+# Official Implementation of Out VTON360
 
 ## ✨ News
 - [03.01.2024] We release our code and demo data for 3D lifting.
