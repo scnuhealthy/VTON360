@@ -1,0 +1,137 @@
+image_finetune: true
+from_scratch: false
+
+output_dir: "mvhumannet_tryon_mvattn_multi_1205"
+# output_dir: "mvhumannet_tryon_exp_multi_1028"
+logging_dir: "log"
+# pretrained_model_path: "/data1/hezijian/pretrained_models/stable-diffusion-v1-5"
+# pretrained_vae_path: "/data1/hezijian/pretrained_models/sd-vae-ft-mse"
+# pretrained_clip_path: '/data1/hezijian/pretrained_models/clip-vit-base-patch32'
+# clip_model_path: '/data1/hezijian/pretrained_models/clip-vit-base-patch32'
+pretrained_model_path: "/GPUFS/sysu_gbli2_1/hzj/pretrained_models/stable-diffusion-v1-5"
+pretrained_vae_path: "/GPUFS/sysu_gbli2_1/hzj/pretrained_models/sd-vae-ft-mse"
+pretrained_clip_path: '/GPUFS/sysu_gbli2_1/hzj/pretrained_models/clip-vit-base-patch32'
+clip_model_path: '/GPUFS/sysu_gbli2_1/hzj/pretrained_models/clip-vit-base-patch32'
+controlnet_model_name_or_path: null
+
+# trained stage1 model
+trained_unet_path: "checkpoints/thuman_tryon_exp_1015_two/checkpoint-120000"
+trained_referencenet_path: "checkpoints/thuman_tryon_exp_1015_two/checkpoint-120000"
+trained_pose_guider_path: 'checkpoints/thuman_tryon_exp_1015_two/checkpoint-120000/pose.ckpt'
+# trained_unet_path: "thuman_tryon_exp_1015_two/checkpoint-60000"
+# trained_referencenet_path: "thuman_tryon_exp_1015_two/checkpoint-60000"
+# trained_pose_guider_path: 'thuman_tryon_exp_1015_two/checkpoint-60000/pose.ckpt'
+
+unet_additional_kwargs:
+  use_motion_module              : false
+  motion_module_resolutions      : [ 1,2,4,8 ]
+  unet_use_cross_frame_attention : false
+  unet_use_temporal_attention    : false
+
+  motion_module_type: Vanilla
+  motion_module_kwargs:
+    num_attention_heads                : 8
+    num_transformer_block              : 1
+    attention_block_types              : [ "Temporal_Self", "Temporal_Self" ]
+    temporal_position_encoding         : true
+    temporal_position_encoding_max_len : 24
+    temporal_attention_dim_div         : 1
+    zero_initialize                    : true
+  encoder_hid_dim: 1280
+  encoder_hid_dim_type: 'text_proj'
+
+noise_scheduler_kwargs:
+  num_train_timesteps: 1000
+  beta_start:          0.00085
+  beta_end:            0.012
+  beta_schedule:       "linear"
+  steps_offset:        1
+  clip_sample:         false
+
+train_data:
+  # dataroot: "/GPUFS/sysu_gbli2_1/hzj/render_data"
+  dataroot: "/GPUFS/sysu_gbli2_1/hzj/mvhumannet/"
+  # sample_size:  [512,384] # for 40G 256
+  sample_size:  [768,576]
+  clip_model_path: '/GPUFS/sysu_gbli2_1/hzj/pretrained_models/clip-vit-base-patch32'
+  is_train: true
+  mode: 'pair'
+
+# train_data:
+#   # dataroot: "/GPUFS/sysu_gbli2_1/hzj/render_data"
+#   dataroot: "/GPUFS/sysu_gbli2_1/hzj/save_render_data_yw/"
+#   # sample_size:  [512,384] # for 40G 256
+#   sample_size:  [768,576] # for 40G 256
+#   clip_model_path: '/GPUFS/sysu_gbli2_1/hzj/pretrained_models/clip-vit-base-patch32'
+#   is_train: true
+#   mode: 'pair'
+
+# train_data:
+#   # csv_path:     "./data/UBC_train_info_test.csv"
+#   csv_path:     "./data/TikTok_info.csv"
+#   video_folder: "../TikTok_dataset2/TikTok_dataset"
+#   sample_size:  512 # for 40G 256
+#   sample_stride: 4
+#   sample_n_frames: 8
+#   clip_model_path: 'pretrained_models/clip-vit-base-patch32'
+
+# train_data:
+#   # csv_path:     "./data/UBC_train_info_test.csv"
+#   csv_path:     "./data/UBC_train_info.csv"
+#   video_folder: "../UBC_dataset"
+#   sample_size:  512 # for 40G 256
+#   sample_stride: 4
+#   sample_n_frames: 8
+#   clip_model_path: 'pretrained_models/clip-vit-base-patch32'
+
+validation_data:
+  prompts:
+    - "Snow rocky mountains peaks canyon. Snow blanketed rocky mountains surround and shadow deep canyons."
+    - "A drone view of celebration with Christma tree and fireworks, starry sky - background."
+    - "Robot dancing in times square."
+    - "Pacific coast, carmel by the sea ocean and waves."
+  num_inference_steps: 25
+  guidance_scale: 8.
+
+trainable_modules:
+  # - "motion_modules."
+  - "."
+  # - "conv_in"
+
+fusion_blocks: "full"
+
+unet_checkpoint_path: ""
+
+scale_lr: false
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_weight_decay: 1.e-2
+adam_epsilon: 1.e-08
+learning_rate: 2.e-5
+train_batch_size: 1
+gradient_accumulation_steps: 2
+max_grad_norm: 1.0
+
+lr_scheduler: 'constant'
+lr_warmup_steps: 0
+
+num_train_epochs:     10000
+max_train_steps:      null
+checkpointing_steps:  2000
+
+validation_steps:       5000
+validation_steps_tuple: [2, 50]
+
+seed: 42
+mixed_precision_training: true
+enable_xformers_memory_efficient_attention: True
+
+is_debug: False
+
+checkpoints_total_limit: 10
+mixed_precision: "fp16"
+report_to: "tensorboard"
+allow_tf32: true
+resume_from_checkpoint: 'latest'
+# resume_from_checkpoint: null
+dataloader_num_workers: 8

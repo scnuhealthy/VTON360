@@ -68,11 +68,32 @@ pip install -e .
 
 ### Use Our Preprocessed Data
 
-### Customize Your Data
+### Render from Thuman2.0
 
 ## :arrow_forward: Get Started
 
 ### 1. Multi-view Consistant Try-On
+
+#### A. Download the checkpoint
+Put the checkpoint into 'src/multiview_consist_edit/checkpoints'
+We provide two checkpoints: 'thuman_tryon_mvattn_multi/checkpoints-30000' and 'mvhumannet_tryon_mvattn_multi/checkpoints-40000'
+#### B. Image editing
+```bash
+cd src/multiview_consist_edit
+python infer_tryon_multi.py
+```
+The edited results are saved into 'output_root'
+
+#### C. Post-precross
+```bash
+python get_parse.py --image_root 'output_root' --output_root 'output_post_root' 
+```
+
+#### D. Training
+```bash
+acclerate config
+acclerate launch train_tryon_multi.py
+```
 
 ### 2. 3D Lifting
 
