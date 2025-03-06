@@ -97,6 +97,25 @@ acclerate launch train_tryon_multi.py
 
 ### 2. 3D Lifting
 
+#### A. Prepare Your Data as [NeRF Studio's Dataset Format](https://docs.nerf.studio/quickstart/data_conventions.html#dataset-format)
+
+You need to prepare three components for 3D lifting with NeRF Studio.
+
+* `images`: multi-view images containing the target person.
+* `mask`: mask for the target human in multi-view images.
+* `transforms.json`: NeRF Studio's dataset configuration.
+
+We provide a demo dataset in `src/demo_data/splatfactox_demo_data`. 
+
+You can simply replace the `images` and `mask` directories if you use our try-on result.
+
+You can refer to [NeRF Studio's Dataset Format](https://docs.nerf.studio/quickstart/data_conventions.html#dataset-format) for more details if you want to use your own data.
+
+#### B. Run Our Customized Splatfacto
+
+> [Splatfacto](https://docs.nerf.studio/nerfology/methods/splat.html) is an implementation of [3DGS](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/). You can refer to [here](./src/splatfactox/README.md) for our customized version of splatfacto.
+
+
 ```bash
 cd src
 bash scripts/splatfactox.sh
