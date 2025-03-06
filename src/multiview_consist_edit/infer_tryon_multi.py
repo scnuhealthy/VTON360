@@ -13,7 +13,6 @@ from transformers import CLIPImageProcessor, CLIPTextModel, CLIPTokenizer
 from diffusers import AutoencoderKL, DDPMScheduler, StableDiffusionInstructPix2PixPipeline, DDIMScheduler
 from torchvision.utils import make_grid as make_image_grid
 from torchvision.utils import save_image
-from models.unet import UNet3DConditionModel
 from models.condition_encoder import FrozenOpenCLIPImageEmbedderV2
 from omegaconf import OmegaConf
 from pipelines.pipeline_tryon_multi import TryOnPipeline

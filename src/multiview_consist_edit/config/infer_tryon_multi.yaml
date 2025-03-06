@@ -4,29 +4,15 @@ model_path: "/GPUFS/sysu_gbli2_1/hzj/pretrained_models/stable-diffusion-v1-5"
 vae_path: "/GPUFS/sysu_gbli2_1/hzj/pretrained_models/sd-vae-ft-mse"
 clip_model_path: '/GPUFS/sysu_gbli2_1/hzj/pretrained_models/clip-vit-base-patch32'
 
-# unet_path: "thuman_tryon_exp_0807/checkpoint-140000"
-# pretrained_poseguider_path: "thuman_tryon_exp_0807/checkpoint-140000/pose.ckpt"
-# pretrained_referencenet_path: 'thuman_tryon_exp_0807/checkpoint-140000'
+# unet_path: "/GPUFS/sysu_gbli2_1/hzj/animate/checkpoints/thuman_tryon_mvattn_multi_1205/checkpoint-30000"
+# pretrained_poseguider_path: "/GPUFS/sysu_gbli2_1/hzj/animate/checkpoints/thuman_tryon_mvattn_multi_1205/checkpoint-30000/pose.ckpt"
+# pretrained_referencenet_path: '/GPUFS/sysu_gbli2_1/hzj/animate/checkpoints/thuman_tryon_mvattn_multi_1205/checkpoint-30000'
 
-# unet_path: "mvhumannet_tryon_exp_multi_1028/checkpoint-24000"
-# pretrained_poseguider_path: "mvhumannet_tryon_exp_multi_1028/checkpoint-24000/pose.ckpt"
-# pretrained_referencenet_path: 'mvhumannet_tryon_exp_multi_1028/checkpoint-24000'
+unet_path: "/GPUFS/sysu_gbli2_1/hzj/animate/checkpoints/mvhumannet_tryon_mvattn_multi_1205/checkpoint-40000"
+pretrained_poseguider_path: "/GPUFS/sysu_gbli2_1/hzj/animate/checkpoints/mvhumannet_tryon_mvattn_multi_1205/checkpoint-40000/pose.ckpt"
+pretrained_referencenet_path: '/GPUFS/sysu_gbli2_1/hzj/animate/checkpoints/mvhumannet_tryon_mvattn_multi_1205/checkpoint-40000'
 
-# unet_path: "checkpoints/thuman_tryon_exp_multi_1025/checkpoint-22000"
-# pretrained_poseguider_path: "checkpoints/thuman_tryon_exp_multi_1025/checkpoint-22000/pose.ckpt"
-# pretrained_referencenet_path: 'checkpoints/thuman_tryon_exp_multi_1025/checkpoint-22000'
-
-unet_path: "checkpoints/mvhumannet_tryon_mvattn_multi_1205/checkpoint-40000"
-pretrained_poseguider_path: "checkpoints/mvhumannet_tryon_mvattn_multi_1205/checkpoint-40000/pose.ckpt"
-pretrained_referencenet_path: 'checkpoints/mvhumannet_tryon_mvattn_multi_1205/checkpoint-40000'
-
-# unet_path: "thuman_tryon_exp_1015_two/checkpoint-60000"
-# pretrained_poseguider_path: "thuman_tryon_exp_1015_two/checkpoint-60000/pose.ckpt"
-# pretrained_referencenet_path: 'thuman_tryon_exp_1015_two/checkpoint-60000'
-
-out_dir: 'image_test_w_mvhumannet2_multi_22000_mubs_111'
-# out_dir: 'image_output_tryon_mvhumannet_1028_24000_test_multi_2'
-# out_dir: 'image_output_tryon_mvhumannet_1028_14000_all_multi_cfg2_back'
+out_dir: 'image_output_tryon_mvhumannet'
 
 batch_size: 2
 dataloader_num_workers: 4
@@ -41,6 +27,7 @@ guidance_scale: 2  # thuman:3 mvhumannet:2
 #   clip_model_path: '/GPUFS/sysu_gbli2_1/hzj/pretrained_models/clip-vit-base-patch32'
 #   is_train: false
 #   mode: 'pair'
+#   output_front: true
 
 infer_data:
   # dataroot: "/GPUFS/sysu_gbli2_1/hzj/render_data"
@@ -50,6 +37,7 @@ infer_data:
   clip_model_path: '/GPUFS/sysu_gbli2_1/hzj/pretrained_models/clip-vit-base-patch32'
   is_train: false
   mode: 'pair'
+  output_front: true
 
 fusion_blocks: "full"
 image_finetune: true

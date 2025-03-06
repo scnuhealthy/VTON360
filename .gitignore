@@ -1,0 +1,48 @@
+# Python 编译文件和缓存
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Python 虚拟环境
+venv/
+.env/
+.venv/
+env/
+virtualenvs/
+.Python/
+
+# Python 打包和分发
+build/
+dist/
+*.egg-info/
+*.egg
+*.whl
+*.tar.gz
+
+# 测试相关
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+# IDE 和编辑器
+.idea/
+.vscode/
+*.suo
+*.sublime-workspace
+*.sublime-project
+
+# 环境变量文件
+.env
+.env.local
+.env.*
+
+# 日志文件
+*.log
+*.log.*
+
+# 系统文件
+.DS_Store
+Thumbs.db
