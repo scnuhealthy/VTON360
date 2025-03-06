@@ -74,19 +74,35 @@ pip install -e .
 
 ### 1. Multi-view Consistant Try-On
 
-#### A. Download the checkpoint
-Put the checkpoint into 'src/multiview_consist_edit/checkpoints'
+#### A. Download the checkpoint and pre-trained models
+1. Put the checkpoint into 'src/multiview_consist_edit/checkpoints'
 We provide two checkpoints: 'thuman_tryon_mvattn_multi/checkpoints-30000' and 'mvhumannet_tryon_mvattn_multi/checkpoints-40000'
+
+2. Download [clip-vit-base-patch32](https://huggingface.co/openai/clip-vit-base-patch32) and [sd-vae-ft-mse](https://huggingface.co/diffusers/sd-vae-ft-mse) from Huggingface
+
+3. set the path in the 'src/multiview_consist_edit/config'
+
+4. Download the parsing checkpoint from [here](https://huggingface.co/spaces/yisol/IDM-VTON/tree/main/ckpt/humanparsing)
+
 #### B. Image editing
 ```bash
 cd src/multiview_consist_edit
 python infer_tryon_multi.py
 ```
-The edited results are saved into 'output_root'
+The edited results are saved into 'output_root'.
+
+Since the limitation of GPU memory, set 'output_front=False' and rerun to get the back views prediction
+```bash
+python infer_tryon_multi.py
+```
 
 #### C. Post-precross
 ```bash
-python get_parse.py --image_root 'output_root' --output_root 'output_post_root' 
+cd parse_tool
+python postprocess_parse.py 'output_root'
+cd ../
+python postprocess_thuman.py --image_root 'output_root' --output_root 'output_post_root' 
+or python postprocess_mvhumannet.py --image_root 'output_root' --output_root 'output_post_root' 
 ```
 
 #### D. Training
