@@ -68,7 +68,41 @@ pip install -e .
 
 ### Use Our Preprocessed Data
 
-### Render from Thuman2.0
+We provide several data rendered from Thuman2.1 for you [here](src/demo_data/Thuman2.0). You can refer to the next Sec. *Render from Thuman2.1* to render manually.
+
+### Render from Thuman2.1
+
+#### A. Download Thuman2.1
+
+... Download to `/PATH/TO/Thuman2.1`
+
+#### B. Render Multi-view Images from Thuman2.1's `.obj` files
+
+Change the `thuman_root` and `save_root` in `src/render_from_thuman/render_multiview_images.py` and run the script.
+
+```bash
+cd src/render_from_thuman/
+python render_multiview_images.py
+```
+
+#### C. Process Multi-view Images as NerfStudio's Format and Extract Masks
+
+Change the `root` in `src/render_from_thuman/process2ns_fmt.py` to the rendered multi-view images from previous step and run the script.
+
+```bash
+cd src/render_from_thuman/
+python process2ns_fmt.py
+```
+
+#### D. Extract Cloth From Rendered Images
+
+Note that this step is optional if you use your own cloth images.
+
+```bash
+cd src/render_from_thuman/
+python get_cloth.py
+```
+
 
 ## :arrow_forward: Get Started
 
