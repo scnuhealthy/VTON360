@@ -68,7 +68,7 @@ pip install -e .
 
 ### Use Our Preprocessed Data
 
-We provide several data rendered from Thuman2.1 for you [here](src/demo_data/Thuman2.0). You can refer to the next Sec. *Render from Thuman2.1* to render manually.
+We provide several data rendered from Thuman2.1 and MVHumannet for you [here](https://pan.baidu.com/s/1m1PCj8m-ewcW2uJKieiLyA) with code `2vce`. You can refer to the next Sec. *Render from Thuman2.1* to render manually.
 
 ### Render from Thuman2.1
 
@@ -111,6 +111,10 @@ python get_cloth.py
 #### A. Download the checkpoint and pre-trained models
 1. Put the checkpoint into 'src/multiview_consist_edit/checkpoints'
 We provide two checkpoints: 'thuman_tryon_mvattn_multi/checkpoints-30000' and 'mvhumannet_tryon_mvattn_multi/checkpoints-40000'
+
+checkpoint for thuman: [here](https://pan.baidu.com/s/1SJH3QI30UKihOaU9owta5Q) with code `32h3`.
+
+checkpoint for mvhumannet: [here](https://pan.baidu.com/s/1Onu7BIFzOppRSzO97ZmlmQ) with code `mahx`
 
 2. Download [clip-vit-base-patch32](https://huggingface.co/openai/clip-vit-base-patch32) and [sd-vae-ft-mse](https://huggingface.co/diffusers/sd-vae-ft-mse) from Huggingface
 
