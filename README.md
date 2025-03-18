@@ -18,8 +18,8 @@
 
 <div align="center">
 
-<!-- [![Badge with Logo](https://img.shields.io/badge/arXiv-2403.08733-red?logo=arxiv)
-](https://arxiv.org/abs/2403.08733) -->
+[![Badge with Logo](https://img.shields.io/badge/arXiv-2503.12165-red?logo=arxiv)
+](https://arxiv.org/pdf/2503.12165)
 [![Badge with Logo](https://img.shields.io/badge/Project-Page-blue?logo=homepage)](https://scnuhealthy.github.io/VTON360/)
 </div>
 
