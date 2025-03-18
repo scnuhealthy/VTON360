@@ -24,7 +24,7 @@
 </div>
 
 ## ✨ News
-- [03.01.2024] We release our code and demo data for 3D lifting.
+- [03.18.2025] We release our code and demo data for 3D lifting.
 
 ## ⚙️ Installation
 
