@@ -120,7 +120,7 @@ checkpoint for mvhumannet: [here](https://pan.baidu.com/s/1Onu7BIFzOppRSzO97Zmlm
 
 3. set the path in the 'src/multiview_consist_edit/config'
 
-4. Download the parsing checkpoint from [here](https://huggingface.co/spaces/yisol/IDM-VTON/tree/main/ckpt/humanparsing)
+4. Download the parsing checkpoint from [here](https://huggingface.co/spaces/yisol/IDM-VTON/tree/main/ckpt/humanparsing), and put them into 'src/multiview_consist_edit/parse_tool/ckpt/'
 
 #### B. Image editing
 ```bash
