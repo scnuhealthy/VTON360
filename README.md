@@ -57,7 +57,12 @@ ns-install-cli # Optional, for tab completion.
 pip install gsplat==0.1.2.1
 ```
 
-3. Install our customized [Splatfacto](https://docs.nerf.studio/nerfology/methods/splat.html). See [`src/splatfactox/README.md`](./splatfactox/README.md) for more details.
+3. Install the requirement packages
+```
+pip install -r requirements.txt
+```
+
+4. Install our customized [Splatfacto](https://docs.nerf.studio/nerfology/methods/splat.html). See [`src/splatfactox/README.md`](./splatfactox/README.md) for more details.
 ```bash
 cd src
 pip install -e .
