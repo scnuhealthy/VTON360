@@ -178,5 +178,10 @@ bash scripts/splatfactox.sh
 ## Citation
 If you find this code or find the paper useful for your research, please consider citing:
 ```
-
+@article{he2025vton,
+  title={VTON 360: High-fidelity virtual try-on from any viewing direction},
+  author={He, Zijian and Ning, Yuwei and Qin, Yipeng and Wang, Wangrun and Yang, Sibei and Lin, Liang and Li, Guanbin},
+  journal={arXiv preprint arXiv:2503.12165},
+  year={2025}
+}
 ```
