@@ -73,7 +73,7 @@ pip install -e .
 
 ### Use Our Preprocessed Data
 
-We provide several data rendered from Thuman2.1 and MVHumannet for you [here](https://pan.baidu.com/s/148q5XfR4gEWofburQ85ZyA) with code `6ktc`. You can refer to the next Sec. *Render from Thuman2.1* to render manually.
+We provide several data rendered from Thuman2.1 and MVHumannet for you [here](https://pan.baidu.com/s/1kD8p-Ebo6DVI_8O12apNJw) with code `aq4f`. You can refer to the next Sec. *Render from Thuman2.1* to render manually.
 
 ### Render from Thuman2.1
 
@@ -150,8 +150,8 @@ or python postprocess_mvhumannet.py --image_root 'output_root' --output_root 'ou
 
 #### D. Training
 ```bash
-acclerate config
-acclerate launch train_tryon_multi.py
+accelerate config
+accelerate launch train_tryon_multi.py
 ```
 
 ### 2. 3D Lifting
