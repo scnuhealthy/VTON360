@@ -87,59 +87,75 @@ def apply_mask_and_enlarge(image, mask, scale_factor=1.5):
 
     return white_background
 
-root = '/data1/hezijian/render_data/val'
-img_root = os.path.join(root, 'img')
-parse_root = os.path.join(root, 'parse2')
-cloth_root = os.path.join(root, 'cloth')
+root = '/data0/hezijian/datasets/mvhumannet/processed_mvhumannet'
+cloth_root = os.path.join('/data0/hezijian', 'cloth')
 
 if not os.path.exists(cloth_root):
     os.makedirs(cloth_root)
 
-# sub_folder_list = os.listdir(img_root)
-# sub_folder_list = sorted(sub_folder_list)
-# for sub_folder in sub_folder_list:
-#     sub_folder_path = os.path.join(img_root, sub_folder)
-#     parse_sub_folder_path = os.path.join(parse_root, sub_folder)
+sub_folder_list = os.listdir(root)
+sub_folder_list = sorted(sub_folder_list)[:]
+# sub_folder_list = ['200197','200198','200199']
+ok_num = 0
+wrong_num = 0
+for sub_folder in sub_folder_list:
+    sub_folder_path = os.path.join(root, sub_folder)
 
-for i in range(0,4):
-    sub_folder_name = str(i).zfill(4)
-    front = '%s_000/0.jpg' % sub_folder_name
-    back = '%s_008/0.jpg' % sub_folder_name
+    frame_ids = os.listdir(os.path.join(root, sub_folder, 'resized_img'))
 
-    front_img = os.path.join(img_root, front)
-    back_img = os.path.join(img_root, back)
-    front_parse = os.path.join(parse_root, front.replace('jpg','png'))
-    back_parse = os.path.join(parse_root, back.replace('jpg','png'))
 
-    if not os.path.exists(front_img) or not os.path.exists(back_img):
-        continue
+    for frame_id in frame_ids:
 
-    if not os.path.exists(front_parse) or not os.path.exists(back_parse):
-        continue
+        try:
+            parse_sub_folder_path = os.path.join(root, sub_folder, 'parse2', frame_id)
+            image_folder_path = os.path.join(root, sub_folder, 'resized_img', frame_id)
 
-    front_img = Image.open(front_img)
-    back_img = Image.open(back_img)
-    front_parse = Image.open(front_parse)
-    back_parse = Image.open(back_parse)
+            if sub_folder[:2] == '10':
+                front = '%s_%s_img.jpg' % ('CC32871A004', frame_id)
+                back = '%s_%s_img.jpg' % ('CC32871A038', frame_id)
+            elif sub_folder[:2] == '20':
+                front = '%s_%s_img.jpg' % ('22236236', frame_id)
+                back = '%s_%s_img.jpg' % ('22327091', frame_id)
+            else:
+                pass
 
-    front_img = np.array(crop(front_img).resize((384,512)))
-    back_img = np.array(crop(back_img).resize((384,512)))
-    front_parse = np.array(front_parse.resize((384,512)))
-    back_parse = np.array(back_parse.resize((384,512)))
+            front_img = os.path.join(image_folder_path, front)
+            back_img = os.path.join(image_folder_path, back)
+            front_parse = os.path.join(parse_sub_folder_path, front.replace('jpg','png'))
+            back_parse = os.path.join(parse_sub_folder_path, back.replace('jpg','png'))
 
-    try:
-        mask_front = front_parse == 4
-        mask_back = back_parse == 4
-        front_cloth = apply_mask_and_enlarge(front_img, mask_front, scale_factor=2.0)
-        back_cloth = apply_mask_and_enlarge(back_img, mask_back, scale_factor=2.0)
-        # front_cloth = apply_mask(front_img, mask_front)
-        # back_cloth = apply_mask(back_img, mask_back)
+            # if not os.path.exists(front_img) or not os.path.exists(back_img):
+            #     continue
 
-        front_cloth_name = os.path.join(cloth_root, sub_folder_name+'_front.jpg')
-        back_cloth_name = os.path.join(cloth_root, sub_folder_name+'_back.jpg')
-        front_cloth = Image.fromarray(front_cloth).save(front_cloth_name)
-        back_cloth = Image.fromarray(back_cloth).save(back_cloth_name)
+            # if not os.path.exists(front_parse) or not os.path.exists(back_parse):
+            #     continue
 
-    except:
-        print('bbb',i)
-        pass
+            front_img = Image.open(front_img)
+            back_img = Image.open(back_img)
+            front_parse = Image.open(front_parse)
+            back_parse = Image.open(back_parse)
+
+            front_img = np.array(front_img.resize((512,768)))
+            back_img = np.array(back_img.resize((512,768)))
+            front_parse = np.array(front_parse.resize((512,768)))
+            back_parse = np.array(back_parse.resize((512,768)))
+            
+            mask_front = front_parse == 4
+            mask_back = back_parse == 4
+            front_cloth = apply_mask_and_enlarge(front_img, mask_front, scale_factor=2.0)
+            back_cloth = apply_mask_and_enlarge(back_img, mask_back, scale_factor=2.0)
+            # front_cloth = apply_mask(front_img, mask_front)
+            # back_cloth = apply_mask(back_img, mask_back)
+
+            front_cloth_name = os.path.join(cloth_root, '%s_%s_front.jpg'%(sub_folder, frame_id))
+            back_cloth_name = os.path.join(cloth_root, '%s_%s_back.jpg'%(sub_folder, frame_id))
+            front_cloth = Image.fromarray(front_cloth).save(front_cloth_name)
+            back_cloth = Image.fromarray(back_cloth).save(back_cloth_name)
+            print('ok',front_cloth_name)
+            ok_num +=1
+
+        except:
+            print('wrong',parse_sub_folder_path)
+            wrong_num +=1
+print('ok',ok_num)
+print('wrong',wrong_num)

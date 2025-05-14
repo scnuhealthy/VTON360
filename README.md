@@ -105,7 +105,7 @@ Note that this step is optional if you use your own cloth images.
 
 ```bash
 cd src/render_from_thuman/
-python get_cloth.py
+python get_cloth_thuman.py
 ```
 
 
