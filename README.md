@@ -92,7 +92,7 @@ python render_multiview_images.py
 
 #### C. Process Multi-view Images as NerfStudio's Format and Extract Masks
 
-1. Download `ckpt` folder used for human parsing from [here](./None), and place it in `src/render_from_thuman/ckpt`
+1. Download `ckpt` folder used for human parsing from [here](https://github.com/yisol/IDM-VTON/tree/main/ckpt), and place it in `src/render_from_thuman/ckpt`
 
 2. Change the `root` in `src/render_from_thuman/process2ns_fmt.py` to the rendered multi-view images from previous step and run the script.
 
