@@ -54,7 +54,7 @@ def get_agnostic_mask(human_img_orig, is_checked_crop=True):
     mask_gray = (1-transforms.ToTensor()(mask)) * tensor_transfrom(human_img)
     mask_gray = to_pil_image((mask_gray+1.0)/2.0)
 
-    args = apply_net.create_argument_parser().parse_args(('show', './configs/densepose_rcnn_R_50_FPN_s1x.yaml', './ckpt/densepose/model_final_162be9.pkl', 'dp_segm', '-v', '--opts', 'MODEL.DEVICE', 'cuda'))
+    args = apply_net.create_argument_parser().parse_args(('show', 'src/render_from_thuman/configs/densepose_rcnn_R_50_FPN_s1x.yaml', 'src/render_from_thuman/ckpt/densepose/model_final_162be9.pkl', 'dp_segm', '-v', '--opts', 'MODEL.DEVICE', 'cuda'))
     pose_img = args.func(args,human_img_arg)
     pose_img = pose_img[:,:,::-1]
     pose_img = Image.fromarray(pose_img)
@@ -73,13 +73,13 @@ def get_agnostic_mask(human_img_orig, is_checked_crop=True):
 
 # pose_img.save('3.jpg')
 
-root = '/PATH/TO/THUMAN2.1/all'
+root = '/PATH/TO/THUMAN'
 
 sub_folder_list = os.listdir(root)
 sub_folder_list = sorted(sub_folder_list)
-f = open('wrong_all_yw_512_600.txt','w')
+f = open('wrong_ids.txt','w')
 
-for sub_folder in sub_folder_list[512:600]:
+for sub_folder in sub_folder_list:
     sub_folder_path = os.path.join(root, sub_folder, 'images')
     parse_sub_folder_path = os.path.join(root, sub_folder, 'parse2')
     agnostic_sub_folder_path = os.path.join(root, sub_folder, 'agnostic')
