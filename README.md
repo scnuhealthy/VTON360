@@ -110,6 +110,15 @@ cd src/render_from_thuman/
 python get_cloth_thuman.py
 ```
 
+#### E. Extract Intrinsic and Extrinsic Parameters
+
+revise the path `inv_export.py`
+
+```bash
+cd src/render_from_thuman/
+python inv_export.py
+```
+
 
 ## :arrow_forward: Get Started
 
