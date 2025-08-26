@@ -141,7 +141,7 @@ class TryOnPipeline(DiffusionPipeline, TextualInversionLoaderMixin, LoraLoaderMi
         # camera
         weight_matrix = calculate_weight_matrix(camera_pose.reshape(batch_size, frame_length, 3, 3))
         weight_matrix = torch.ones_like(weight_matrix)
-        weight_matrix = weight_matrix.to(device=device, dtype=torch.float16)
+        # weight_matrix = weight_matrix.to(device=device, dtype=torch.float16)
         # print('weight_matrix',weight_matrix)
         register_mv_attn(self.unet)  # here use mv attn
         update_mv_attn(self.unet, weight_matrix)
