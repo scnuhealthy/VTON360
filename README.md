@@ -150,7 +150,7 @@ Since the limitation of GPU memory, set 'output_front=False' and rerun to get th
 python infer_tryon_multi.py
 ```
 
-#### C. Post-precross
+#### C. Post-process
 ```bash
 cd parse_tool
 python postprocess_parse.py 'output_root'
