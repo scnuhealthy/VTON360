@@ -132,6 +132,8 @@ checkpoint for thuman: [here](https://pan.baidu.com/s/1SJH3QI30UKihOaU9owta5Q) w
 
 checkpoint for mvhumannet: [here](https://pan.baidu.com/s/1Onu7BIFzOppRSzO97ZmlmQ) with code `mahx`
 
+The checkpoints are also uploaded into the Huggingface([Thuman](https://huggingface.co/nielsr/VTON360-THuman2.0),[MvHumanNet](https://huggingface.co/nielsr/VTON360-MVHumanNet)), thansk for the work from @NielsRogge.
+
 2. Download [clip-vit-base-patch32](https://huggingface.co/openai/clip-vit-base-patch32) and [sd-vae-ft-mse](https://huggingface.co/diffusers/sd-vae-ft-mse) from Huggingface
 
 3. set the path in the 'src/multiview_consist_edit/config'
