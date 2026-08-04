@@ -73,7 +73,7 @@ pip install -e .
 
 ### Use Our Preprocessed Data
 
-We provide several data rendered from Thuman2.1 and MVHumannet for you [here](https://pan.baidu.com/s/1kD8p-Ebo6DVI_8O12apNJw) with code `aq4f`. You can refer to the next Sec. *Render from Thuman2.1* to render manually.
+We provide several data rendered from Thuman2.1 and MVHumannet for you [Baidu Netdisk](https://pan.baidu.com/s/1kD8p-Ebo6DVI_8O12apNJw) with code `aq4f` or [Google Drive](https://drive.google.com/file/d/1K0RfX79kMZ9rC-kJWC6mLg_a5VKgucNL/view?usp=sharing). You can refer to the next Sec. *Render from Thuman2.1* to render manually.
 
 ### Render from Thuman2.1
 
